@@ -31,7 +31,7 @@
 
     <form id="formGroup">
         <div class="container" id="plannerContainer">
-            <div class="row plannerRow">
+            <!-- <div class="row plannerRow">
                 <div class="col-md-2">
                     <span class="time-block">9am</span>
                 </div>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-1">
                     <button class="saveBtn" type="submit">Save</button>
-                </div>
+                </div> -->
             </div>
             
         
@@ -63,6 +63,9 @@
         console.log(moment().format('LT'));
         $("#currentDay").html(currentDate);
 
+        var plannerDiv = $("#plannerContainer");
+        plannerDiv.empty();
+
         // This for loop will create the page using the format example from above
 
         for (var hour = 9; hour <= 17; hour++) {
@@ -76,6 +79,48 @@
             col2TimeDiv.add("col-md-2");
             var timeBoxSpan = $("<span>");
             timeBoxSpan.attr("class", "timeBox");
+
+            var displayHour = 0;
+            var ampm = "";
+            if (hour >= 12) {
+                displayHour = hour - 12;
+                ampm = "pm";
+            }
+            else {
+                displayhour = hour;
+                ampm = "am";
+            }
+            timeBoxSpan.text("$(displayHour) $(ampm)");
+            rowDiv.append(col2TimeDiv);
+            col2TimeDiv.append(timeBoxSpan);
+
+            dlyPlanSpan = $("<imput>");
+
+            dlyPlanSpan.attr("id", "input");
+            dlyPlanSpan.attr("hour-index", index);
+            dlyPlanSpan.attr("type", "text");
+            dlyPlanSpan.attr("class", "dailyPlan");
+            
+
+            var col9IptDiv = $("<div>");
+            col9IptDiv.add("col-md-9");
+            rowDiv.append(col9IptDiv);
+            col9IptDiv.append(dlyPlanSpan);
+
+            var col1SaveDiv = $("<div>");
+            col1SaveDiv.add("col-md-1");
+
+            var saveBtn = $("<i>");
+            saveBtn.attr("id","saveid");
+            saveBtn.attr("save-id" ,index);
+            
+
+            rowDiv.append(col1SaveDiv);
+            col1SaveDiv.append(saveBtn);
+
+            plannerDiv.append(rowDiv);
+
+
         }
           
 
