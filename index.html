@@ -23,27 +23,23 @@
   </head>
 
   <body>
-    <header class="jumbotron">
-      <h1 class="display-3">Work Day Scheduler</h1>
-      <p class="lead">A simple calendar app for scheduling your work day</p>
-      <p id="currentDay" class="lead"></p>
-    </header>
-    <form id="planner-form">
-    <div class="container" id="planner-container">
-      <!-- Timeblocks go here -->
-      <div class="row" id="9am" planner-time= "9">
-      
-        <div class="col-md-2">
-          <span class="time-block hour">9 am</span>
+    <form id="formGroup">
+        <div class="container" id="plannerContainer">
+            <div class="row plannerRow">
+                <div class="col-md-2">
+                    <span class="time-block">9am</span>
+                </div>
+                <div class="col-md-9" style="background-color: lightgray;">
+                    <input class="dailyPlan" type="text">
+                </div>
+                <div class="col-md-1">
+                    <button class="saveBtn" type="submit">Save</button>
+                </div>
+            </div>
+            
+        
         </div>
-        <div class="col-md-9" style="background-color: lightgray">
-          <input class="form-control" id="time-slot-9am"  placeholder="">
-        </div>
-        <div class="col-md-1">
-          <button  class="saveBtn col-md-1">Save</button>
-        </div>
-      </div>    
-        </div>
+    </form>
         
     
         
@@ -52,18 +48,27 @@
       
     </div>
     </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
-        var currentDate = new Date();
-        console.log(currentDate);
-        var newP = $("<p>");
-        newP.text(currentDate);
+        var currentDate = moment().format('MMMM Do YYYY');
+        console.log(currentDate.toString());
+        console.log(moment().format('LT'));
+        var hour = moment().format('LT');
+        var hourNow = '4';
+        if (hour.charAt[0] === hourNow){
+            console.log("You are Late!");
+        }
         
-        $("#currentDay").append(newP);
+        
+        
+        
+        $("#currentDay").html(currentDate);
           
 
     </script>  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    
   </body>
 </html>
