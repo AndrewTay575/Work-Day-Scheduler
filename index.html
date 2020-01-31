@@ -57,19 +57,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
-        var currentDate = moment().format('MMMM Do YYYY');
+        // Displays the current day of week and date to the page
+        var currentDate = moment().format('dddd MMMM Do ');
         console.log(currentDate.toString());
         console.log(moment().format('LT'));
-        var hour = moment().format('LT');
-        var hourNow = '4';
-        if (hour.charAt[0] === hourNow){
-            console.log("You are Late!");
-        }
-        
-        
-        
-        
         $("#currentDay").html(currentDate);
+
+        // This for loop will create the page using the format example from above
+
+        for (var hour = 9; hour <= 17; hour++) {
+            var index = hour - 9;
+
+            var rowDiv = $("<div>");
+            rowDiv.add("row plannerRow");
+            rowDiv.attr("hour-index" ,hour);
+           
+            col2TimeDiv = $("<div>");
+            col2TimeDiv.add("col-md-2");
+            var timeBoxSpan = $("<span>");
+            timeBoxSpan.attr("class", "timeBox");
+        }
           
 
     </script>  
