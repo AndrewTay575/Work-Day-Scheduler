@@ -31,17 +31,138 @@
 
     <form id="formGroup">
         <div class="container" id="plannerContainer">
-            <!-- <div class="row plannerRow">
+            <div class="row plannerRow" id = "row-9" value = "9">
                 <div class="col-md-2">
                     <span class="time-block">9am</span>
                 </div>
-                <div class="col-md-9" style="background-color: lightgray;">
-                    <input class="dailyPlan" type="text">
+                <div class="col-md-9">
+                    <textarea class = "dailyPlan" id = "textInput9"  style = "background-color:lightgray"></textarea>
                 </div>
                 <div class="col-md-1">
                     <button class="saveBtn" type="submit">Save</button>
-                </div> -->
+                </div>
             </div>
+
+            <br>
+            <hr>
+
+            <div class = "row plannerRow" id = "row-10" value = "10">
+                <div class = "col-md-2">
+                    <span class = "time-block">10am</span>
+                </div>
+                <div class = "col-md-9">
+                    <textarea class = "dailyPlan" id = "textInput10"  style = "background-color:lightgray"></textarea>
+                </div>
+                <div class = "col-md-1">
+                    <button class = "saveBtn" type = "submit">Save</button>
+                </div>
+            </div>
+
+            <br>
+            <hr>
+
+            <div class = "row plannerRow" id = "row-11" value = "11">
+                <div class = "col-md-2">
+                    <span class = "time-block">11am</span>
+                </div>
+                <div class = "col-md-9">
+                    <textarea class = "dailyPlan" id = "textInput11"  style = "background-color:lightgray"></textarea>
+                </div>
+                <div class = "col-md-1">
+                    <button class = "saveBtn" type = "submit">Save</button>
+                </div>
+            </div>
+
+            <br>
+            <hr>
+
+            <div class="row plannerRow" id = "row-12" value = "12">
+                <div class="col-md-2">
+                    <span class="time-block">12am</span>
+                </div>
+                <div class="col-md-9">
+                    <textarea class = "dailyPlan" id = "textInput12"  style = "background-color:lightgray"></textarea>
+                </div>
+                <div class="col-md-1">
+                    <button class="saveBtn" type="submit">Save</button>
+                </div>
+            </div>
+
+            <br>
+            <hr>
+
+            <div class = "row plannerRow" id = "row-13" value = "13">
+                <div class = "col-md-2">
+                    <span class = "time-block">1pm</span>
+                </div>
+                <div class = "col-md-9">
+                    <textarea class = "dailyPlan" id = "textInput13"  style = "background-color:lightgray"></textarea>
+                </div>
+                <div class = "col-md-1">
+                    <button class = "saveBtn" type = "submit">Save</button>
+                </div>
+            </div>
+
+            <br>
+            <hr>
+
+            <div class = "row plannerRow" id = "row-14" value = "14">
+                <div class = "col-md-2">
+                    <span class = "time-block">2pm</span>
+                </div>
+                <div class = "col-md-9">
+                    <textarea class = "dailyPlan" id = "textInput14"  style = "background-color:lightgray"></textarea>
+                </div>
+                <div class = "col-md-1">
+                    <button class = "saveBtn" type = "submit">Save</button>
+                </div>
+            </div>
+
+            <br>
+            <hr>
+
+            <div class="row plannerRow" id = "row-15" value = "15">
+                <div class="col-md-2">
+                    <span class="time-block">3pm</span>
+                </div>
+                <div class="col-md-9">
+                    <textarea class = "dailyPlan" id = "textInput15"  style = "background-color:lightgray"></textarea>
+                </div>
+                <div class="col-md-1">
+                    <button class="saveBtn" type="submit">Save</button>
+                </div>
+            </div>
+
+            <br>
+            <hr>
+
+            <div class = "row plannerRow" id = "row-16" value = "16">
+                <div class = "col-md-2">
+                    <span class = "time-block">4pm</span>
+                </div>
+                <div class = "col-md-9">
+                    <textarea class = "dailyPlan" id = "textInput16"  style = "background-color:lightgray"></textarea>
+                </div>
+                <div class = "col-md-1">
+                    <button class = "saveBtn" type = "submit">Save</button>
+                </div>
+            </div>
+
+            <br>
+            <hr>
+
+            <div class = "row plannerRow" id = "row-17" value = "17">
+                <div class = "col-md-2">
+                    <span class = "time-block">5pm</span>
+                </div>
+                <div class = "col-md-9">
+                    <textarea class = "dailyPlan" id = "textInput17"  style = "background-color:lightgray"></textarea>
+                </div>
+                <div class = "col-md-1">
+                    <button class = "saveBtn" type = "submit">Save</button>
+                </div>
+            </div>
+
             
         
         </div>
@@ -61,67 +182,38 @@
         var currentDate = moment().format('dddd MMMM Do ');
         console.log(currentDate.toString());
         console.log(moment().format('LT'));
+        console.log(moment().hour());
         $("#currentDay").html(currentDate);
+        var currentHour = moment().format("LT");
 
-        var plannerDiv = $("#plannerContainer");
-        plannerDiv.empty();
-
-        // This for loop will create the page using the format example from above
-
-        for (var hour = 9; hour <= 17; hour++) {
-            var index = hour - 9;
-
-            var rowDiv = $("<div>");
-            rowDiv.add("row plannerRow");
-            rowDiv.attr("hour-index" ,hour);
-           
-            col2TimeDiv = $("<div>");
-            col2TimeDiv.add("col-md-2");
-            var timeBoxSpan = $("<span>");
-            timeBoxSpan.attr("class", "timeBox");
-
-            var displayHour = 0;
-            var ampm = "";
-            if (hour >= 12) {
-                displayHour = hour - 12;
-                ampm = "pm";
-            }
-            else {
-                displayhour = hour;
-                ampm = "am";
-            }
-            timeBoxSpan.text("$(displayHour) $(ampm)");
-            rowDiv.append(col2TimeDiv);
-            col2TimeDiv.append(timeBoxSpan);
-
-            dlyPlanSpan = $("<imput>");
-
-            dlyPlanSpan.attr("id", "input");
-            dlyPlanSpan.attr("hour-index", index);
-            dlyPlanSpan.attr("type", "text");
-            dlyPlanSpan.attr("class", "dailyPlan");
-            
-
-            var col9IptDiv = $("<div>");
-            col9IptDiv.add("col-md-9");
-            rowDiv.append(col9IptDiv);
-            col9IptDiv.append(dlyPlanSpan);
-
-            var col1SaveDiv = $("<div>");
-            col1SaveDiv.add("col-md-1");
-
-            var saveBtn = $("<i>");
-            saveBtn.attr("id","saveid");
-            saveBtn.attr("save-id" ,index);
-            
-
-            rowDiv.append(col1SaveDiv);
-            col1SaveDiv.append(saveBtn);
-
-            plannerDiv.append(rowDiv);
-
-
+        if(time === 9){
+            $("#textInput9").attr($("#present"));
         }
+        
+
+
+        // When the save button is clicked, a function is run that will save the text input in the application
+        $(".saveBtn").on("click", function() {
+            // This stops the save button from refreshing the page like normal
+            event.preventDefault()
+            
+            console.log($("#textInput9").val().trim());
+            console.log($("#textInput10").val().trim());
+
+            // Going to store vars here for time slot text areas, so they can be updated from the local storage
+            // Need to create variables for the time vals and variables for the vals from the save button
+            var dayPlan = {
+
+
+
+            }
+
+
+        });
+
+
+
+        
           
 
     </script>  
